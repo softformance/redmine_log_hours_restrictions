@@ -1,0 +1,19 @@
+<p>
+  <%= label_tag 'settings_do_not_track_past_hours' %>
+  <%= check_box_tag 'settings[do_not_track_past_hours]', true, @settings[:do_not_track_past_hours] %>
+</p>
+
+<p>
+  <%= label_tag 'settings_do_not_track_hours_for_the_past_week' %>
+  <%= check_box_tag 'settings[do_not_track_hours_for_the_past_week]', true, @settings[:do_not_track_hours_for_the_past_week] %>
+</p>
+
+<p>
+  <%= label_tag 'settings_do_not_track_hours_for_the_past_month' %>
+  <%= check_box_tag 'settings[do_not_track_hours_for_the_past_month]', true, @settings[:do_not_track_hours_for_the_past_month] %>
+</p>
+
+<p>
+  <%= label_tag 'settings_daily_hours_limit'  %>
+  <%= number_field_tag "settings[daily_hours_limit]", @settings[:daily_hours_limit], :min => 0 %>
+</p>

@@ -1,0 +1,6 @@
+# English strings go here for Rails i18n
+en:
+  time_entry_restiction_day: "Вы не можете залогировать время за прошлые дни"
+  time_entry_restiction_week: "Вы не можете залогировать время за прошлую неделю и ранее"
+  time_entry_restiction_mounth: "Вы не моете залогировать время за прошлый месяц и ранее"
+  time_entry_restiction_day_per_day: "Вы не можете залогировать больше чем %{num} часов за сегодня"

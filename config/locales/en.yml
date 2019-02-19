@@ -1,0 +1,6 @@
+# English strings go here for Rails i18n
+en:
+  time_entry_restiction_day: "You can not log past hours"
+  time_entry_restiction_week: "You can not log hours for the past week and earlier"
+  time_entry_restiction_mounth: "You can not log hours for the past month and earlier"
+  time_entry_restiction_day_per_day: "You can not log more than %{num} hours per day"
