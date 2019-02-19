@@ -8,6 +8,5 @@ This plugin adds the possibility to manage logging hours to Redmine.
 
 == Plugin installation and setup
 
-1. Copy the plugin directory into the plugins directory (make sure the name is log_hours_restrictions)
-2. Change text formatting (Administration > Settings > General > Text formatting) to CKEditor
-3. Configure the plugin (Administration > Plugins > Configure)
+Copy the plugin directory into the plugins directory (make sure the name is redmine_log_hours_restrictions)
+
