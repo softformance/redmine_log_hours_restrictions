@@ -36,9 +36,9 @@ module TimeLimitTimeEntryPatch
 
         def can_log_hours?(usr, record)
           if record.new_record?
-            logged_hours = TimeEntry.where(:user_id => usr.id).where('DATE(spent_on) = ?', Date.today)
+            logged_hours = TimeEntry.where(:user_id => usr.id).where('DATE(spent_on) = ?', record.spent_on)
           else
-            logged_hours = TimeEntry.where(:user_id => usr.id).where('DATE(spent_on) = ?', Date.today).where(TimeEntry.arel_table[:id].not_eq(record.id))
+            logged_hours = TimeEntry.where(:user_id => usr.id).where('DATE(spent_on) = ?', record.spent_on).where(TimeEntry.arel_table[:id].not_eq(record.id))
             time_entry_hours_before_edit = TimeEntry.where(:id => record.id).first.hours
             if time_entry_hours_before_edit > record.hours:
               return true
@@ -47,6 +47,8 @@ module TimeLimitTimeEntryPatch
           logged_hours_sum = logged_hours.sum(:hours)
           avaialable_to_log_hours = (Setting.plugin_redmine_log_hours_restrictions['daily_hours_limit'].to_i - logged_hours_sum)
           avaialable_to_log_hours = 0 if avaialable_to_log_hours < 0
+          puts avaialable_to_log_hours
+          puts logged_hours_sum
           result = record.hours <= avaialable_to_log_hours
         end
 
