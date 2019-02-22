@@ -14,6 +14,11 @@
 </p>
 
 <p>
+  <%= label_tag 'do_not_track_in_future' %>
+  <%= check_box_tag 'settings[do_not_track_in_future]', true, @settings[:do_not_track_in_future] %>
+</p>
+
+<p>
   <%= label_tag 'daily_hours_limit'  %>
   <%= number_field_tag "settings[daily_hours_limit]", @settings[:daily_hours_limit], :min => 0 %>
 </p>

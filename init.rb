@@ -16,6 +16,7 @@ Redmine::Plugin.register :redmine_log_hours_restrictions do
              :do_not_track_past_hours => true, 
              :do_not_track_hours_for_the_past_week => true, 
              :do_not_track_hours_for_the_past_month => true,
+             :do_not_track_in_future => true,
              :daily_hours_limit => 0,
          })
 end
