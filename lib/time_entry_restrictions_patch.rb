@@ -15,18 +15,18 @@ module TimeLimitTimeEntryPatch
         user = User.current
         usr = user
 
-        if !Setting.plugin_log_hours_restrictions['daily_hours_limit'].to_i.zero?
-            record.errors.add attr, I18n.t(:time_entry_restiction_day_per_day, :num => Setting.plugin_log_hours_restrictions['daily_hours_limit']) if !can_log_hours?(user, record)
+        if !Setting.plugin_redmine_log_hours_restrictions['daily_hours_limit'].to_i.zero?
+            record.errors.add attr, I18n.t(:time_entry_restiction_day_per_day, :num => Setting.plugin_redmine_log_hours_restrictions['daily_hours_limit']) if !can_log_hours?(user, record)
         end
 
         # Check past hours
-        if Setting.plugin_log_hours_restrictions['do_not_track_past_hours'] and record.spent_on < today
+        if Setting.plugin_redmine_log_hours_restrictions['do_not_track_past_hours'] and record.spent_on < today
           record.errors.add attr, I18n.t(:time_entry_restiction_day)
         # Check past week and earlier
-        elsif Setting.plugin_log_hours_restrictions['do_not_track_hours_for_the_past_week'] and record.spent_on < monday
+        elsif Setting.plugin_redmine_log_hours_restrictions['do_not_track_hours_for_the_past_week'] and record.spent_on < monday
           record.errors.add attr, I18n.t(:time_entry_restiction_week)
         # Check previous month and earlier
-        elsif Setting.plugin_log_hours_restrictions['do_not_track_hours_for_the_past_month'] and record.spent_on < Date.today.at_beginning_of_month
+        elsif Setting.plugin_redmine_log_hours_restrictions['do_not_track_hours_for_the_past_month'] and record.spent_on < Date.today.at_beginning_of_month
           record.errors.add attr, I18n.t(:time_entry_restiction_mounth)
         end
 
@@ -45,7 +45,7 @@ module TimeLimitTimeEntryPatch
             end
           end
           logged_hours_sum = logged_hours.sum(:hours)
-          avaialable_to_log_hours = (Setting.plugin_log_hours_restrictions['daily_hours_limit'].to_i - logged_hours_sum)
+          avaialable_to_log_hours = (Setting.plugin_redmine_log_hours_restrictions['daily_hours_limit'].to_i - logged_hours_sum)
           avaialable_to_log_hours = 0 if avaialable_to_log_hours < 0
           result = record.hours <= avaialable_to_log_hours
         end
