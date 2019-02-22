@@ -2,7 +2,7 @@ require 'redmine'
 
 require 'time_entry_restrictions_patch'
 
-Redmine::Plugin.register :log_hours_restrictions do
+Redmine::Plugin.register :redmine_log_hours_restrictions do
   name 'Redmine Log Hours Restrictions plugin'
   author 'Dmytro Litvinov'
   description 'Redmine plugin which allows configuer per project logging hours.'
