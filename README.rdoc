@@ -4,7 +4,7 @@ This plugin adds the possibility to manage logging hours to Redmine.
 
 == Requirements
 
-* Redmine 2.1.2
+* Redmine >=4.0
 
 == Plugin installation and setup
 
