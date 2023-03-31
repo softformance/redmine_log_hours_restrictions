@@ -6,7 +6,7 @@ Redmine::Plugin.register :redmine_log_hours_restrictions do
   name 'Redmine Log Hours Restrictions plugin'
   author 'Dmytro Litvinov'
   description 'Redmine plugin which allows configure the settings for logging.'
-  version '0.0.2'
+  version '0.0.3'
   url 'https://github.com/SoftFormance/redmine_log_hours_restrictions'
   author_url 'https://DmytroLitvinov.com'
   requires_redmine :version_or_higher => '4.0'
