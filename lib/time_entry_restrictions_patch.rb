@@ -12,10 +12,18 @@ module TimeLimitTimeEntryPatch
       validates_each :hours do |record, attr, value|
         today = Date.today  # need for "past hours" validaiton
         monday = today - (today.wday - 1) % 7  # need for "past week" validation
+        saturday = today + (6 - today.wday) % 7
+        sunday = today + (7 - today.wday) % 7
         user = User.current
 
         if Setting.plugin_redmine_log_hours_restrictions['do_not_track_in_future'] and record.spent_on > today
             record.errors.add :base, I18n.t(:time_entry_restiction_future_day)
+        end
+
+        if Setting.plugin_redmine_log_hours_restrictions['do_not_track_on_saturday'] and record.spent_on == saturday
+          record.errors.add :base, I18n.t(:time_entry_restiction_satuday)
+        elif Setting.plugin_redmine_log_hours_restrictions['do_not_track_on_sunday'] and record.spent_on == sunday
+          record.errors.add :base, I18n.t(:time_entry_restiction_sunday)
         end
 
         # Check past hours

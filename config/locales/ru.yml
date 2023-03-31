@@ -5,3 +5,5 @@ ru:
   time_entry_restiction_mounth: "Вы не можете залогировать время за прошлый месяц и ранее"
   time_entry_restiction_day_per_day: "Вы не можете залогировать больше чем %{num} часов за сегодня"
   time_entry_restiction_future_day: "К сожалению, вы не можете залогировать время в будущем"
+  time_entry_restiction_satuday: "Вы не можете залогировать время в субботу"
+  time_entry_restiction_sunday: "Вы не можете залогировать время в воскресенье"

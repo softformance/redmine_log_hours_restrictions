@@ -14,6 +14,17 @@
 </p>
 
 <p>
+  <%= label_tag 'do_not_track_on_saturday' %>
+  <%= check_box_tag 'settings[do_not_track_on_saturday]', true, @settings[:do_not_track_on_saturday] %>
+</p>
+
+<p>
+  <%= label_tag 'do_not_track_on_sunday' %>
+  <%= check_box_tag 'settings[do_not_track_on_sunday]', true, @settings[:do_not_track_on_sunday] %>
+</p>
+
+
+<p>
   <%= label_tag 'do_not_track_in_future' %>
   <%= check_box_tag 'settings[do_not_track_in_future]', true, @settings[:do_not_track_in_future] %>
 </p>

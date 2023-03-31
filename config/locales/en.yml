@@ -5,3 +5,5 @@ en:
   time_entry_restiction_mounth: "You can not log hours for the past month and earlier"
   time_entry_restiction_day_per_day: "You can not log more than %{num} hours per day"
   time_entry_restiction_future_day: "Unfortunately, you can not log in future"
+  time_entry_restiction_satuday: "You can not log on Satuday"
+  time_entry_restiction_sunday: "You can not log on Sunday"
