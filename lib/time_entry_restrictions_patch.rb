@@ -22,7 +22,7 @@ module TimeLimitTimeEntryPatch
 
         if Setting.plugin_redmine_log_hours_restrictions['do_not_track_on_saturday'] and record.spent_on == saturday
           record.errors.add :base, I18n.t(:time_entry_restiction_satuday)
-        elif Setting.plugin_redmine_log_hours_restrictions['do_not_track_on_sunday'] and record.spent_on == sunday
+        elsif Setting.plugin_redmine_log_hours_restrictions['do_not_track_on_sunday'] and record.spent_on == sunday
           record.errors.add :base, I18n.t(:time_entry_restiction_sunday)
         end
 
