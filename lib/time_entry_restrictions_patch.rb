@@ -22,7 +22,7 @@ module TimeLimitTimeEntryPatch
 
         if Setting.plugin_redmine_log_hours_restrictions['do_not_track_on_saturday'] and record.spent_on == saturday
           record.errors.add :base, I18n.t(:time_entry_restiction_satuday)
-        elsif Setting.plugin_redmine_log_hours_restrictions['do_not_track_on_sunday'] and record.spent_on == sunday
+        elif Setting.plugin_redmine_log_hours_restrictions['do_not_track_on_sunday'] and record.spent_on == sunday
           record.errors.add :base, I18n.t(:time_entry_restiction_sunday)
         end
 
@@ -41,13 +41,11 @@ module TimeLimitTimeEntryPatch
 
     end
 
-<section class="sm-header-grid sm-micro-grid">
-    {{#foreach posts}}
-        {{> "til-card"}}
-    {{/foreach}}
-</section>
-{{/if}}
+  end
 
-{{/get}}
+end
 
-{{pagination}}
+
+Rails.configuration.to_prepare do
+  TimeEntry.send(:include, TimeLimitTimeEntryPatch)
+end
